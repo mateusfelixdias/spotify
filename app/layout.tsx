@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
+
+import Sidebar from './components/Sidebar';
+
 import IChildren from './interfaces/children';
 
 import './globals.css';
@@ -14,7 +17,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: IChildren) {
   return (
     <html lang="pt-BR">
-      <body className={figtree.className}>{children}</body>
+      <body className={figtree.className}>
+        <Sidebar>{children}</Sidebar>
+      </body>
     </html>
   );
 }
