@@ -8,7 +8,7 @@ export default interface ISubscription {
   created: string;
   prices?: IPrice;
   price_id: string;
-  quantity?: string;
+  quantity?: number;
   ended_at?: string;
   cancel_at?: string;
   trial_end?: string;
