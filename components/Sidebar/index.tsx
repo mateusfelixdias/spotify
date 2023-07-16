@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import { HiHome } from 'react-icons/hi';
 import { BiSearch } from 'react-icons/bi';
 
-import IChildren from '@/app/interfaces/children';
+import IChildren from '@/interfaces/children';
 
 const Sidebar = ({ children }: IChildren) => {
   const pathName = usePathname();
