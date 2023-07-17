@@ -4,6 +4,8 @@ import Button from '../Button';
 
 import { ReactNode } from 'react';
 
+import { toast } from 'react-hot-toast';
+
 import { twMerge } from 'tailwind-merge';
 
 import { useRouter } from 'next/navigation';
@@ -35,6 +37,10 @@ const Header = ({ children, className }: Props) => {
     const { error } = await supabaseClient.auth.signOut();
 
     router.refresh();
+
+    if (error) return toast.error(error.message);
+
+    toast.success('Desconectado!');
   };
 
   return (
