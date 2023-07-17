@@ -7,6 +7,7 @@ import IChildren from '../interfaces/children';
 
 import UserProvider from '@/providers/UserProvider';
 import ModalProvider from '@/providers/ModalProvider';
+import ToasterProvider from '@/providers/ToasterProvider';
 import SupabaseProvaider from '@/providers/SupabaseProvider';
 
 import './globals.css';
@@ -22,6 +23,8 @@ export default function RootLayout({ children }: IChildren) {
   return (
     <html lang="pt-BR">
       <body className={figtree.className}>
+        <ToasterProvider />
+
         <SupabaseProvaider>
           <UserProvider>
             <ModalProvider />
