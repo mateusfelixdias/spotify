@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 import IChildren from '../interfaces/children';
 
 import UserProvider from '@/providers/UserProvider';
+import ModalProvider from '@/providers/ModalProvider';
 import SupabaseProvaider from '@/providers/SupabaseProvider';
 
 import './globals.css';
@@ -23,6 +24,8 @@ export default function RootLayout({ children }: IChildren) {
       <body className={figtree.className}>
         <SupabaseProvaider>
           <UserProvider>
+            <ModalProvider />
+
             <Sidebar>{children}</Sidebar>
           </UserProvider>
         </SupabaseProvaider>
