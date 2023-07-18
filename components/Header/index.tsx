@@ -10,9 +10,8 @@ import { twMerge } from 'tailwind-merge';
 
 import { useRouter } from 'next/navigation';
 
-import useAuthModal from '@/hooks/useAuthModal';
-
 import { useUser } from '@/hooks/useUser';
+import useAuthModal from '@/hooks/useAuthModal';
 
 import { HiHome } from 'react-icons/hi';
 import { BiSearch } from 'react-icons/bi';
