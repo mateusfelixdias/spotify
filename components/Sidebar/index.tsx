@@ -1,18 +1,24 @@
 'use client';
 
+import ISong from '@/interfaces/song';
+
 import Box from '../Box';
 import Library from '../Library';
 import SidebarItem from '../SidebarItem';
 
-import { useMemo } from 'react';
-import { usePathname } from 'next/navigation';
-
 import { HiHome } from 'react-icons/hi';
 import { BiSearch } from 'react-icons/bi';
 
-import IChildren from '@/interfaces/children';
+import { ReactNode, useMemo } from 'react';
 
-const Sidebar = ({ children }: IChildren) => {
+import { usePathname } from 'next/navigation';
+
+interface Props {
+  songs: ISong[];
+  children: ReactNode;
+}
+
+const Sidebar = ({ children, songs }: Props) => {
   const pathName = usePathname();
 
   const isSearch = pathName === 'search';
@@ -37,7 +43,7 @@ const Sidebar = ({ children }: IChildren) => {
         </Box>
 
         <Box className="overflow-y-auto h-full">
-          <Library />
+          <Library songs={songs} />
         </Box>
       </div>
 
