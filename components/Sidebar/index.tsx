@@ -2,12 +2,16 @@
 
 import ISong from '@/interfaces/song';
 
+import { twMerge } from 'tailwind-merge';
+
 import Box from '../Box';
 import Library from '../Library';
 import SidebarItem from '../SidebarItem';
 
 import { HiHome } from 'react-icons/hi';
 import { BiSearch } from 'react-icons/bi';
+
+import usePlayer from '@/hooks/usePlayer';
 
 import { ReactNode, useMemo } from 'react';
 
@@ -19,6 +23,7 @@ interface Props {
 }
 
 const Sidebar = ({ children, songs }: Props) => {
+  const player = usePlayer();
   const pathName = usePathname();
 
   const isSearch = pathName === '/search';
@@ -32,7 +37,12 @@ const Sidebar = ({ children, songs }: Props) => {
   );
 
   return (
-    <div className="flex h-full">
+    <div
+      className={twMerge(
+        'flex h-full',
+        player.activeId ? 'h-[calc(100%-5rem)]' : ''
+      )}
+    >
       <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[18.75rem] p-2">
         <Box>
           <div className="flex flex-col gap-y-4 px-5 py-4">
