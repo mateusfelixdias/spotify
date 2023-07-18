@@ -21,7 +21,7 @@ interface Props {
 const Sidebar = ({ children, songs }: Props) => {
   const pathName = usePathname();
 
-  const isSearch = pathName === 'search';
+  const isSearch = pathName === '/search';
 
   const routes = useMemo(
     () => [
