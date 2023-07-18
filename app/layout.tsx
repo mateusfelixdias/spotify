@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
 
+import Player from '@/components/Player';
 import Sidebar from '../components/Sidebar';
 
 import IChildren from '../interfaces/children';
@@ -36,6 +37,8 @@ export default async function RootLayout({ children }: IChildren) {
             <ModalProvider />
 
             <Sidebar songs={userSongs}>{children}</Sidebar>
+
+            <Player />
           </UserProvider>
         </SupabaseProvaider>
       </body>
